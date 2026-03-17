@@ -9,7 +9,11 @@ import java.time.Duration;
 
 public class BaseTest {
 
-    public WebDriver driver;
+	public static WebDriver driver;
+
+	public static WebDriver getDriver() {
+	    return driver;
+	}
 
     @BeforeMethod
     public void setup() {

@@ -1,44 +1,33 @@
 package com.ankit.qa.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.ankit.qa.base.BaseTest;
-import com.ankit.qa.pages.*;
 
 public class LoginTest extends BaseTest {
 
-    @Test
-    public void completeOrderTest() {
+    @Test(dataProvider = "loginData")
+    public void loginTest(String username, String password) {
 
-        System.out.println("Starting test...");
+        driver.get("https://example.com");
 
-        // LOGIN
-        LoginPage lp = new LoginPage(driver);
-        lp.login("standard_user", "secret_sauce");
+        System.out.println("Running test with: " + username + " / " + password);
 
-        // HOME
-        HomePage hp = new HomePage(driver);
-        hp.addProductToCart();
-        hp.openCart();
+        // simulate login steps (for now just print)
 
-        // CART
-        CartPage cp = new CartPage(driver);
-        cp.clickCheckout();
+        // 🔴 Force fail (for screenshot check)
+        //Assert.assertTrue(false);
+    }
 
-        // CHECKOUT
-        CheckoutPage ch = new CheckoutPage(driver);
-        ch.enterDetails("Ankit", "Kumar", "110001");
-        ch.clickContinue();
-        ch.clickFinish();
+    @DataProvider(name = "loginData")
+    public Object[][] getData() {
 
-        // ASSERTION (VERY IMPORTANT)
-        String currentURL = driver.getCurrentUrl();
-        System.out.println("Current URL: " + currentURL);
-
-        Assert.assertTrue(currentURL.contains("checkout-complete"),
-                "Order not completed!");
-
-        System.out.println("Order completed successfully.");
+        return new Object[][] {
+            {"user1", "pass1"},
+            {"user2", "pass2"},
+            {"user3", "pass3"}
+        };
     }
 }

@@ -1,0 +1,9 @@
+name: Test Suite
+configFailurePolicy: skip
+listeners:
+  - com.ankit.qa.utils.TestListener
+tests:
+  - name: Automation Tests
+  classes:
+    - com.ankit.qa.tests.LoginTest
+
