@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ankit.qa.tests.LoginTest">
+      <class name="com.ankit.qa.api.APITest">
         <methods>
-          <include name="completeOrderTest"/>
-          <include name="tearDown"/>
-          <include name="setup"/>
+          <include name="deleteUserTest"/>
+          <include name="createUserTest"/>
+          <include name="getUsersTest"/>
+          <include name="updateUserTest"/>
         </methods>
-      </class> <!-- com.ankit.qa.tests.LoginTest -->
+      </class> <!-- com.ankit.qa.api.APITest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
